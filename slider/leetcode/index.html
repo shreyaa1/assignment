@@ -9,6 +9,7 @@
   </body>
 
   <script>
+
 var twoSum = function(nums, target) {
     let obj = {}
     let len = nums.length;
@@ -20,6 +21,26 @@ var twoSum = function(nums, target) {
         obj[nums[i]] = i;
     }
 };
+// not all the test cases passing failing on -2147483648 (ex)
+// Assume we are dealing with an environment that could only store integers within the 32-bit signed 
+// integer range: [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 0
+//  when the reversed integer overflows.
+var reverse = function(x) {
+      let number = 
+    parseFloat(
+      x
+        .toString()
+        .split('')
+        .reverse()
+        .join('')
+    ) * Math.sign(x)
+  
+  if (number > Math.pow(2, 32) -1 ) return 0
+  
+    return number
+};
+console.log('result', reverse(1234562))
+
 
    console.log("result ", twoSum([2,7,11,15], 9))
   </script>
